@@ -479,7 +479,7 @@ func (this *ButterfishCtx) SetPS1(childIn io.Writer) {
 		// characters when calculating the cursor position
 		ps1 = "set -U fish_prompt \\e[%s\\e]$fish_prompt$'%s\\e[ $?%s\\e] '\n"
 	default:
-		log.Printf("Unknown shell %s, Butterfish is going to leave the PS1 alone. This means that you won't get a custom prompt in Butterfish, and Butterfish won't be able to parse the exit code of the previous command, used for certain features. Create an issue at https://github.com/bakks/butterfish.", shell)
+		log.Printf("Shell not supported: %s. Butterfish relies on being able to parse the PS1 variable and uses it heavily internally for features like autosuggestions and catching the return status. If your shell isn't supported consider filing an issue at https://github.com/bakks/butterfish.", shell)
 		return
 	}
 
