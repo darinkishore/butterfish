@@ -474,6 +474,10 @@ func (this *ButterfishCtx) SetPS1(childIn io.Writer) {
 		// the %%{ and %%} are zsh-specific and tell zsh to not count the enclosed
 		// characters when calculating the cursor position
 		ps1 = "PS1=$'%%{%s%%}'$PS1$'%s%%{ %%?%s%%} '\n"
+	case "fish":
+		// the \e[ and \e] are fish-specific and tell fish to not count the enclosed
+		// characters when calculating the cursor position
+		ps1 = "set -U fish_prompt \\e[%s\\e]$fish_prompt$'%s\\e[ $?%s\\e] '\n"
 	default:
 		log.Printf("Unknown shell %s, Butterfish is going to leave the PS1 alone. This means that you won't get a custom prompt in Butterfish, and Butterfish won't be able to parse the exit code of the previous command, used for certain features. Create an issue at https://github.com/bakks/butterfish.", shell)
 		return
