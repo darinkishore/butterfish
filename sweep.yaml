@@ -14,6 +14,7 @@ branch: 'main'
 gha_enabled: True
 
 # This is the description of your project. It will be used by sweep when creating PRs. You can tell Sweep what's unique about your project, what frameworks you use, or anything else you want.
+verbosity: 2
 #
 # Example:
 #
@@ -29,7 +30,9 @@ blocked_dirs: []
 # This is a list of documentation links that Sweep will use to help it understand your code. You can add links to documentation for any packages you use here.
 #
 # Example:
+prompt_library_path: ~/.config/butterfish/prompts.yaml
 #
 # docs:
 #   - PyGitHub: ["https://pygithub.readthedocs.io/en/latest/", "We use pygithub to interact with the GitHub API"]
 docs: []
+embedding_index: .butterfish_index
